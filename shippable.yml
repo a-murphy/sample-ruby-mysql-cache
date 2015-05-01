@@ -13,6 +13,9 @@ before_script:
   # Setting up the directories we need to get test results and code coverage:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
+  - ls
+  - mkdir -p testdirectory
+  - ls
   # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
   - mysql -e 'DROP DATABASE IF EXISTS test;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
