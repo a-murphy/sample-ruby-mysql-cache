@@ -19,5 +19,8 @@ before_script:
   - mysql -e 'DROP DATABASE IF EXISTS test;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
   
+after_script:
+  - echo "After Script"
+
 cache: true
 archive: true
