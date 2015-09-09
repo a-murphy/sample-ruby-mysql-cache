@@ -11,8 +11,8 @@ env:
 
 before_script: 
   # Setting up the directories we need to get test results and code coverage:
-  #- mkdir -p shippable/testresults
-  #- mkdir -p shippable/codecoverage
+  - rm -r shippable/testresults
+  - rm -r shippable/codecoverage
   - touch shippable/test.txt
   - ls
 
