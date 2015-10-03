@@ -24,4 +24,4 @@ after_script:
   - echo "After Script"
 
 cache: true
-#archive: true
+archive: true
