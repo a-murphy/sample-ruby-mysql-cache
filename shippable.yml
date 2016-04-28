@@ -11,6 +11,9 @@ env:
 
 before_script: 
   # Setting up the directories we need to get test results and code coverage:
+  - bundle install
+  - ls -al
+  - ls -al vendor
   - rm -r shippable/testresults
   - rm -r shippable/codecoverage
   - touch shippable/test.txt
