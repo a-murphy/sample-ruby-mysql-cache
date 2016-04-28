@@ -23,6 +23,8 @@ before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 after_script:
+  - ls -al
+  - ls -al vendor
   - echo "After Script"
 
 #archive: true
