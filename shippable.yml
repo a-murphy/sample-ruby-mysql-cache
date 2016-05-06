@@ -12,11 +12,10 @@ env:
 before_script: 
   # Setting up the directories we need to get test results and code coverage:
   - ls -al
-  - ls -al vendor
   - rm -r shippable/testresults
   - rm -r shippable/codecoverage
-  - touch shippable/test.txt
   - ls
+  - ssh-add -l
 
   # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
   - mysql -e 'DROP DATABASE IF EXISTS test;'
@@ -24,7 +23,6 @@ before_script:
 
 after_script:
   - ls -al
-  - ls -al vendor
   - echo "After Script"
 
 #archive: true
