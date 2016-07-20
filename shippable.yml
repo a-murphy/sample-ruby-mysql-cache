@@ -13,7 +13,7 @@ build:
     - ls
     - ls /usr/local/rvm/gems/$(rvm strings 2.2.2)/gems
     - bundle install --gemfile="Gemfile"
-    - touch test2.txt
+    - echo "test" >> test2.txt
     - ls
    # - bundle exec rake
   cache: true
