@@ -9,7 +9,7 @@ services:
 
 build:
   ci:
-    - echo "$(rvm-version)"
+    - echo "$(rvm info)"
     - ls /usr/local/rvm/gems
     - bundle install --gemfile="Gemfile"
    # - bundle exec rake
