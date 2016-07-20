@@ -5,7 +5,7 @@ env:
   global:
     - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage rvm_autoupdate_flag=0
 services:
-  - mongodb
+  - mysql
 
 build:
   ci:
