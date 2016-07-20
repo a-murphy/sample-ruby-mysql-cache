@@ -10,8 +10,10 @@ services:
 build:
   ci:
     - echo "$(rvm strings 2.2.2)"
+    - ls
     - ls /usr/local/rvm/gems/$(rvm strings 2.2.2)/gems
     - bundle install --gemfile="Gemfile"
+    - touch test.txt
    # - bundle exec rake
   cache: true
   cache_dir_list:
