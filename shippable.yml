@@ -12,6 +12,7 @@ env:
 build:
   ci:
     # Setting up the directories we need to get test results and code coverage:
+    - echo $ruby-version
     - ls -al
     - rm -r shippable/testresults
     - rm -r shippable/codecoverage
