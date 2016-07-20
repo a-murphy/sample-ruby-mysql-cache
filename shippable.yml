@@ -10,8 +10,9 @@ services:
 build:
   ci:
     - echo "$ruby_string"
+    - ls /usr/local/rvm/gems
     - bundle install --gemfile="Gemfile"
-    - bundle exec rake
+   # - bundle exec rake
   cache: true
   cache_dir_list:
      - /usr/local/rvm/gems/$ruby_string/gems
