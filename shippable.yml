@@ -9,7 +9,7 @@ services:
 
 build:
   ci:
-    - echo $(ruby-version)
+    - echo "$(ruby-version)"
     - bundle install --gemfile="Gemfile"
     - bundle exec rake
   cache: true
