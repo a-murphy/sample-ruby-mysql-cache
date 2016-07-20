@@ -9,7 +9,7 @@ services:
 
 build:
   ci:
-    - echo "$ruby_string"
+    - echo "$(rvm-version)"
     - ls /usr/local/rvm/gems
     - bundle install --gemfile="Gemfile"
    # - bundle exec rake
