@@ -13,11 +13,12 @@ build:
     - ls
     - echo $GEM_HOME
     - ls /usr/local/rvm/gems/$(rvm strings 2.2.2)
-    - bundle install --local --gemfile="Gemfile"
+    #- bundle install --local --gemfile="Gemfile"
     - echo "test" >> test2.txt
     - ls
    # - bundle exec rake
   cache: true
   cache_dir_list:
-    - /usr/local/rvm/gems/$(rvm strings 2.2.2)
+    - /usr/local/rvm/gems/$(rvm strings 2.2.2)/gems
+    - /usr/local/rvm/gems/$(rvm strings 2.2.2)/specifications
     - $SHIPPABLE_BUILD_DIR
