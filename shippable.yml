@@ -15,6 +15,7 @@ build:
     - ls /usr/local/rvm/gems/$(rvm strings 2.2.2)
   #  - bundle show ci_reporter
     - bundle package
+    - bundle install --gemfile="Gemfile"
     - bundle show ci_reporter
     - echo "test" >> test2.txt
     - ls
