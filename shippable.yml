@@ -12,6 +12,7 @@ build:
     - echo "$(rvm strings 2.2.2)"
     - ls
     - ls /usr/local/rvm/gems/$(rvm strings 2.2.2)/gems
+    - bundle check
     - bundle install --gemfile="Gemfile"
     - echo "test" >> test2.txt
     - ls
