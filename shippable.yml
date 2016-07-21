@@ -22,5 +22,5 @@ build:
   cache: true
   cache_dir_list:
     - /usr/local/rvm/gems/$(rvm strings 2.2.2)/gems
- #   - /usr/local/rvm/gems/$(rvm strings 2.2.2)/specifications
+    - /usr/local/rvm/gems/$(rvm strings 2.2.2)/specifications
     - $SHIPPABLE_BUILD_DIR
