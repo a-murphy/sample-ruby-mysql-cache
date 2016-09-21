@@ -6,3 +6,5 @@ Caching Shippable build minons, as illustrated in this sample, reduces the time 
 For more detailed information, please see Shippable's documentation at http://docs.shippable.com/en/latest/config.html.
 
 This sample is built for Shippable, a docker based continuous integration and deployment platform.
+
+http://172.17.42.1:50000/projects/57cf282a6ef8ea1800cd2673/badge?branch=master
