@@ -7,4 +7,4 @@ For more detailed information, please see Shippable's documentation at http://do
 
 This sample is built for Shippable, a docker based continuous integration and deployment platform.
 
-http://172.17.42.1:50000/projects/57cf282a6ef8ea1800cd2673/badge?branch=master
+[![Build Status](http://0d5ee31b.ngrok.io/projects/57cf282a6ef8ea1800cd2673/badge?branch=master)](https://beta.shippable.com/projects/5373de85f39baf5a00c05ade)
