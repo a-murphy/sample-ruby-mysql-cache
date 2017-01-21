@@ -12,9 +12,11 @@ env:
 build:
   pre_ci:
     - docker images | grep u14pyt
-  ci:
     - pip freeze | grep docker
     - pip show docker-py
+    - pip install docker-compose=1.9.0
+  ci:
+  
     - exit
     # Setting up the directories we need to get test results and code coverage:
     - rm -r shippable/testresults
