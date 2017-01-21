@@ -12,9 +12,7 @@ env:
 build:
   pre_ci:
     - docker images | grep u14pyt
-    - pip freeze | grep docker
-    - pip show docker-py
-    - pip install docker-compose=1.9.0
+    - pip install docker-compose==1.9.0
   ci:
   
     - exit
