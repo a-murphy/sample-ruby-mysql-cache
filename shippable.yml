@@ -16,7 +16,7 @@ build:
     - pip install docker-compose==1.9.0
   ci:
   
-    - shippable_retry exit 1
+    - shippable_retry return 1
     # Setting up the directories we need to get test results and code coverage:
     - rm -r shippable/testresults
     - rm -r shippable/codecoverage
