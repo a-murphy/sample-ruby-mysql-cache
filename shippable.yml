@@ -30,12 +30,6 @@ build:
     - test/on_success.sh test
   on_failure:
     - test/on_failure.sh test
-    
-integrations:
-  hub:
-    - integrationName: ECR
-      type: ecr
-      region: us-west-2
 
 #cache: true
 #archive: true
