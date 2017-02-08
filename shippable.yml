@@ -31,5 +31,18 @@ build:
   on_failure:
     - test/on_failure.sh test
 
+integrations:
+  deploy:
+    - integrationName: AWS
+      type: aws
+      target: eb_paas
+      platform: "Python"
+      application_name: myproject
+      env_name: myproject-api-staging
+      region: eu-west-2
+      branches:
+        only:
+          - master
+
 #cache: true
 #archive: true
