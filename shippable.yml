@@ -12,8 +12,6 @@ env:
 build:
   pre_ci:
     - docker images | grep u14pyt
-    - pip show docker-py
-    - pip install docker-compose==1.9.0
   ci:
   
     - shippable_retry return 1
@@ -39,7 +37,7 @@ integrations:
       platform: "Python"
       application_name: myproject
       env_name: myproject-api-staging
-      region: eu-west-2
+      region: us-west-2
       branches:
         only:
           - master
