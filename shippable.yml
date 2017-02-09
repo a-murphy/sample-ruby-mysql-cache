@@ -10,8 +10,6 @@ env:
     - MYSQL_HOSTNAME=127.0.0.1 MYSQL_USERNAME=shippable MYSQL_PASSWORD="" MYSQL_DB_NAME=test MYSQL_PORT=3306
 
 build:
-  pre_ci:
-    - docker images | grep u14pyt
   ci:
     # Setting up the directories we need to get test results and code coverage:
     - rm -r shippable/testresults
