@@ -13,13 +13,9 @@ build:
   pre_ci:
     - docker images | grep u14pyt
   ci:
-  
-    - shippable_retry return 1
     # Setting up the directories we need to get test results and code coverage:
     - rm -r shippable/testresults
     - rm -r shippable/codecoverage
-    - touch shippable/test.txt
-    - ls
 
     # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
     - mysql -e 'DROP DATABASE IF EXISTS test;'
