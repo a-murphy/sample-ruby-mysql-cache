@@ -20,6 +20,7 @@ pre_ci_boot:
 
 build:
   ci:
+   - touch bundle
    - shippable_retry apt-get update && apt-get install -y libpq-dev imagemagick libmagickwand-dev libmysqlclient-dev phantomjs  
  #  - mysqladmin create my_test
    - mysql -uroot -e "GRANT ALL PRIVILEGES ON $TEST_DB_NAME.* TO $TEST_DB_USERNAME@$TEST_DB_HOST" 
