@@ -24,6 +24,8 @@ build:
  #  - mysqladmin create my_test
    - mysql -uroot -e "GRANT ALL PRIVILEGES ON $TEST_DB_NAME.* TO $TEST_DB_USERNAME@$TEST_DB_HOST" 
    - bundle package --all
+   - shippable_retry bundle install
+   - ruby -v
     # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
   #  - mysql -e 'DROP DATABASE IF EXISTS test;'
   #  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
