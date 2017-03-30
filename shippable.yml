@@ -13,6 +13,7 @@ env:
     # Here it is used for the test result and code coverage directories and the database location.
     - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
     - TEST_DB_HOST=127.0.0.1 TEST_DB_USERNAME=shippable MYSQL_PASSWORD="" TEST_DB_NAME=test MYSQL_PORT=3306
+    - secure: QVv4yVTzFQaUFKekQ89T+SOb2+BMS79QI0Mv7PTTIXZVDKJyD0BGXhnjWuTat/rZNujuo1qaAA7iZEoqv8W61FxTZa6+kWR9nNnQV4s9CWkcInCyK4iCqy8UZtUSEAN6bzPu0NQ5dgngkqHdr4cTAlMxLONgtLBd0wgnnQCmuI25mHLQpt1Qbzs/c787VbcWrTvzXHvSrVc/3whqLbdIjoZ/zcyALJFhrmMSn+EiYjRMFmM52BVfopDvQTz3lbXNZbShLbpJAEmm7tCUM7jr83Yp4Kn84d/hSM1ZovV5/eUOY02U4semFLq7tp8JVcE/N6bugIDKCmeBbgMupia40g==
     
 pre_ci_boot:
   image_name: drydock/u14ruball
@@ -34,6 +35,8 @@ build:
   #  - test/on_success.sh test
   #on_failure:
   #  - test/on_failure.sh test
+   on_success:
+     - 'curl -H "Authorization: apiToken $API_TOKEN" -H "Content-Type: application/json" -X https://rcapi.shippable.com/projects/5882cca0255ab70f00995f9e/newBuild -d "{\"branchName\": \"March-2017\", \"globalEnv\": {\"number\": \"$BUILD_NUMBER\"}}"'
 
 integrations:
   notifications:
@@ -45,7 +48,7 @@ integrations:
       branches:
         only:
            - March-2017
-      on_success: always
+      on_success: never
       on_failure: never
       on_start: never
       on_pull_request: never
