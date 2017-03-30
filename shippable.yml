@@ -36,7 +36,7 @@ build:
   #on_failure:
   #  - test/on_failure.sh test
   on_success:
-    - 'curl -H "Authorization: apiToken $API_TOKEN" -H "Content-Type: application/json" -X https://rcapi.shippable.com/projects/5882cca0255ab70f00995f9e/newBuild -d "{\"branchName\": \"March-2017\", \"globalEnv\": {\"number\": \"$BUILD_NUMBER\"}}"'
+    - 'curl -H "Authorization: apiToken $API_TOKEN" -H "Content-Type: application/json" -X POST https://rcapi.shippable.com/projects/5882cca0255ab70f00995f9e/newBuild -d "{\"branchName\": \"March-2017\", \"globalEnv\": {\"number\": \"$BUILD_NUMBER\"}}"'
 
 integrations:
   notifications:
