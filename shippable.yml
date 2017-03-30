@@ -36,7 +36,7 @@ build:
   #on_failure:
   #  - test/on_failure.sh test
   on_success:
-    - 'if [ "$BRANCH" == "March-2017" ] && [ "$IS_PULL_REQUEST" == "false" ] ; then curl -H "Authorization: apiToken $API_TOKEN" -H "Content-Type: application/json" -d "{\"branchName\": \"March-2017\", \"globalEnv\": {\"REPO_TRIGGER\": \"$REPO_NAME\", \"AUTHOR_TRIGGER\"=\"$COMMITTER\", \"FCC_BUILD_NUMBER\": \"$BUILD_NUMBER\"}}" -X POST https://rcapi.shippable.com/projects/5882cca0255ab70f00995f9e/newBuild; fi'
+    - 'if [ "$BRANCH" == "March-2017" ] && [ "$IS_PULL_REQUEST" == "false" ] ; then curl -H "Authorization: apiToken $API_TOKEN" -H "Content-Type: application/json" -d "{\"branchName\": \"March-2017\", \"globalEnv\": {\"REPO_TRIGGER\": \"$REPO_NAME\", \"AUTHOR_TRIGGER\": \"$COMMITTER\", \"FCC_BUILD_NUMBER\": \"$BUILD_NUMBER\"}}" -X POST https://rcapi.shippable.com/projects/5882cca0255ab70f00995f9e/newBuild; fi'
 
 integrations:
   notifications:
