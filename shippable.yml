@@ -13,20 +13,15 @@ env:
     # Here it is used for the test result and code coverage directories and the database location.
     - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
     - TEST_DB_HOST=127.0.0.1 TEST_DB_USERNAME=shippable MYSQL_PASSWORD="" TEST_DB_NAME=test MYSQL_PORT=3306
-    - secure: QVv4yVTzFQaUFKekQ89T+SOb2+BMS79QI0Mv7PTTIXZVDKJyD0BGXhnjWuTat/rZNujuo1qaAA7iZEoqv8W61FxTZa6+kWR9nNnQV4s9CWkcInCyK4iCqy8UZtUSEAN6bzPu0NQ5dgngkqHdr4cTAlMxLONgtLBd0wgnnQCmuI25mHLQpt1Qbzs/c787VbcWrTvzXHvSrVc/3whqLbdIjoZ/zcyALJFhrmMSn+EiYjRMFmM52BVfopDvQTz3lbXNZbShLbpJAEmm7tCUM7jr83Yp4Kn84d/hSM1ZovV5/eUOY02U4semFLq7tp8JVcE/N6bugIDKCmeBbgMupia40g==
-    
+   
 pre_ci_boot:
   image_name: drydock/u14ruball
   image_tag: prod
 
 build:
+  pre_ci:
+    - echo "test"
   ci:
-#   - touch bundle
-#   - shippable_retry apt-get update && apt-get install -y libpq-dev imagemagick libmagickwand-dev libmysqlclient-dev phantomjs  
- #  - mysqladmin create my_test
-#   - mysql -uroot -e "GRANT ALL PRIVILEGES ON $TEST_DB_NAME.* TO $TEST_DB_USERNAME@$TEST_DB_HOST" 
-#   - bundle package --all
-#   - shippable_retry bundle install
    - ruby -v
     # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
   #  - mysql -e 'DROP DATABASE IF EXISTS test;'
@@ -35,23 +30,3 @@ build:
   #  - test/on_success.sh test
   #on_failure:
   #  - test/on_failure.sh test
-  on_success:
-    - 'if [ "$BRANCH" == "cross-compilation" ] && [ "$IS_PULL_REQUEST" == "false" ] ; then curl -H "Authorization: apiToken $API_TOKEN" -H "Content-Type: application/json" -d "{\"branchName\": \"March-2017\", \"globalEnv\": {\"REPO_TRIGGER\": \"$REPO_NAME\", \"AUTHOR_TRIGGER\": \"$COMMITTER\", \"FCC_BUILD_NUMBER\": \"$BUILD_NUMBER\"}}" -X POST https://rcapi.shippable.com/projects/5882cca0255ab70f00995f9e/newBuild; fi'
-
-integrations:
-  notifications:
-    - integrationName: testTrigger
-      type: webhook
-      payload:
-        - NUMBER=$BUILD_NUMBER
-        - branchName=March-2017
-      branches:
-        only:
-           - March-2017
-      on_success: never
-      on_failure: never
-      on_start: never
-      on_pull_request: never
-    
-#cache: true
-#archive: true
