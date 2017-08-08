@@ -19,6 +19,8 @@ pre_ci_boot:
   image_tag: prod
 
 build:
+  pre_ci:
+    - echo "test"
   ci:
    - ruby -v
     # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
