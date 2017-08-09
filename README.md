@@ -7,4 +7,4 @@ For more detailed information, please see Shippable's documentation at http://do
 
 This sample is built for Shippable, a docker based continuous integration and deployment platform.
 
-1 2
+1 2 3
