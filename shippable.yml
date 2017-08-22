@@ -13,6 +13,7 @@ build:
   pre_ci_boot:
     image_name: 544102397216.dkr.ecr.us-east-1.amazonaws.com/test/repository
     image_tag: latest
+    pull: true
   ci:
     # Setting up the directories we need to get test results and code coverage:
     - rm -r shippable/testresults
