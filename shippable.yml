@@ -27,17 +27,17 @@ build:
   #  - test/on_failure.sh test
 
 integrations:
-  deploy:
-    - integrationName: AWS
-      type: aws
-      target: eb_paas
-      platform: "Python"
-      application_name: myproject
-      env_name: myproject-api-staging
-      region: us-west-2
-      branches:
-        only:
-          - master
+ # deploy:
+ #   - integrationName: AWS
+ #     type: aws
+ #     target: eb_paas
+ #     platform: "Python"
+ #     application_name: myproject
+ #     env_name: myproject-api-staging
+ #     region: us-west-2
+ #     branches:
+ #       only:
+ #         - master
   hub:
     - integrationName: ECR
       type: ecr
