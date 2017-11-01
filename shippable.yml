@@ -11,13 +11,14 @@ env:
 
 build:
   pre_ci_boot:
-    image_name: 544102397216.dkr.ecr.us-east-1.amazonaws.com/test/repository
-    image_tag: latest
+    image_name: drydock/u14pytall
+    image_tag: prod
     pull: true
   ci:
     # Setting up the directories we need to get test results and code coverage:
     - rm -r shippable/testresults
     - rm -r shippable/codecoverage
+    - sudo ss -lptn 'sport = :8080'
 
     # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
   #  - mysql -e 'DROP DATABASE IF EXISTS test;'
@@ -39,10 +40,10 @@ integrations:
  #     branches:
  #       only:
  #         - master
-  hub:
-    - integrationName: ECR
-      type: ecr
-      region: us-east-1
+ # hub:
+ #   - integrationName: ECR
+ #     type: ecr
+ #     region: us-east-1
 
 #cache: true
 #archive: true
