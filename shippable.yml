@@ -1,51 +1,12 @@
 language: ruby
+
 rvm:
   - 2.6.2
 
-env:
-  global:
-    # The global environment variables are available in all of the builds of a matrix.
-    # Here it is used for the test result and code coverage directories and the database location.
-    - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
-    - MYSQL_HOSTNAME=127.0.0.1 MYSQL_USERNAME=shippable MYSQL_PASSWORD="" MYSQL_DB_NAME=test MYSQL_PORT=3306
-
-build:
-  pre_ci_boot:
-    image_name: drydock/u16ruball
-    image_tag: v6.3.4
-    pull: true
-  ci:
-    # Setting up the directories we need to get test results and code coverage:
-    - rm -r shippable/testresults
-    - rm -r shippable/codecoverage
-    - sudo ss -lptn 'sport = :8080'
-
-    # Resetting the database in before_script makes sure that the database is always empty for consistent test results.
-  #  - mysql -e 'DROP DATABASE IF EXISTS test;'
-  #  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  #on_success:
-  #  - test/on_success.sh test
-  #on_failure:
-  #  - test/on_failure.sh test
-
 services:
   - mysql
-#integrations:
- # deploy:
- #   - integrationName: AWS
- #     type: aws
- #     target: eb_paas
- #     platform: "Python"
- #     application_name: myproject
- #     env_name: myproject-api-staging
- #     region: us-west-2
- #     branches:
- #       only:
- #         - master
- # hub:
- #   - integrationName: ECR
- #     type: ecr
- #     region: us-east-1
 
-#cache: true
-#archive: true
+build:
+  ci:
+    - nvm install 7.8.0
+    - ./bash/test.sh
