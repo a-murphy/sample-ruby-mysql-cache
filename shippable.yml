@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 1.9.3
+  - 2.6.2
 
 env:
   global:
@@ -11,8 +11,8 @@ env:
 
 build:
   pre_ci_boot:
-    image_name: drydock/u14pytall
-    image_tag: prod
+    image_name: drydock/u16ruball
+    image_tag: v6.3.4
     pull: true
   ci:
     # Setting up the directories we need to get test results and code coverage:
@@ -28,7 +28,9 @@ build:
   #on_failure:
   #  - test/on_failure.sh test
 
-integrations:
+services:
+  - mysql
+#integrations:
  # deploy:
  #   - integrationName: AWS
  #     type: aws
